@@ -1,1 +1,0 @@
-* Added fastlane structure for F-Droid inclusion
