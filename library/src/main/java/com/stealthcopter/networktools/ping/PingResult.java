@@ -1,5 +1,3 @@
-package com.stealthcopter.networktools.ping;
-
 import java.net.InetAddress;
 
 public class PingResult {
