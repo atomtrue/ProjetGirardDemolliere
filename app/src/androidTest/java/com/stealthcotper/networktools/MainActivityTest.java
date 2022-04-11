@@ -1,8 +1,3 @@
-package com.stealthcotper.networktools;
-
-/**
- * Created by matthew on 20/12/16.
- */
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -37,7 +32,6 @@ public class MainActivityTest {
     public void setUp() {
         activity = mActivityRule.getActivity();
 
-        // Code to wake up screen before running tests
         Runnable wakeUpDevice = new Runnable() {
             public void run() {
                 activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
@@ -55,7 +49,6 @@ public class MainActivityTest {
 
         setUpText("google.com");
 
-        // Click ping button
         onView(withId(R.id.pingButton)).perform(click());
 
         sleep();
@@ -70,7 +63,6 @@ public class MainActivityTest {
 
         setUpText("localhost");
 
-        // Click ping button
         onView(withId(R.id.wolButton)).perform(click());
 
         sleep();
@@ -85,7 +77,6 @@ public class MainActivityTest {
 
         setUpText("localhost");
 
-        // Click ping button
         onView(withId(R.id.portScanButton)).perform(click());
 
         sleep();
@@ -93,20 +84,12 @@ public class MainActivityTest {
         Spoon.screenshot(mActivityRule.getActivity(), "port_scan");
     }
 
-//    @Test
-//    public void checkGitHubButton(){
-//        onView(withId(R.id.action_github)).perform(click());
-//
-//        intended(allOf(hasData(hasHost(equalTo("www.google.com"))),
-//                hasAction(Intent.ACTION_VIEW)));
-//    }
 
     private void setUpText(String hostNameOrIp){
-        // Enter text
+
         onView(withId(R.id.editIpAddress))
                 .perform(clearText(), typeText(hostNameOrIp), closeSoftKeyboard());
 
-        // Check text is entered
         onView(withId(R.id.editIpAddress)).check(matches(withText(hostNameOrIp)));
     }
 
