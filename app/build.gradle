@@ -7,7 +7,7 @@ buildscript {
   dependencies {
     classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
 
-    // This is so we can publish straight to Google Play
+
     classpath 'com.github.triplet.gradle:play-publisher:1.2.2'
   }
 }
@@ -18,8 +18,8 @@ apply plugin: 'com.github.triplet.play'
 
 play {
   track = 'beta'
-  if (project.hasProperty("ANDROID_NETWORK_TOOLS_SERVICE_ACCOUNT")) {
-    serviceAccountEmail ANDROID_NETWORK_TOOLS_SERVICE_ACCOUNT
+  if (project.hasProperty("ANDROID_APPLI_RESEAU_SERVICE_ACCOUNT")) {
+    serviceAccountEmail ANDROID_APPLI_RESEAU_SERVICE_ACCOUNT
   }
   pk12File = file('../key.p12')
 }
@@ -29,34 +29,32 @@ android {
   buildToolsVersion buildToolsVer
 
   defaultConfig {
-    applicationId "com.stealthcotper.networktools"
+    applicationId "com.demgird.applireseau"
     minSdkVersion minSdkVer
     targetSdkVersion targetSdkVer
 
-    // When updating these, remember to update the vars in the root build.gradle
-    versionName "0.4.5.3"
+    versionName "Presentation1.0"
     versionCode 21
 
-    archivesBaseName = "AndroidNetworkTools"
+    archivesBaseName = "AndroidAppliReseau"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
 
-  //check if the keystore details are defined in gradle.properties (this is so the key is not in github)
-  if (project.hasProperty("ANDROID_NETWORK_TOOLS_STORE")) {
+  if (project.hasProperty("ANDROID_APPLI_RESEAU_STORE")) {
     signingConfigs {
       //from ~/.gradle/gradle.properties
       release {
-        storeFile file(ANDROID_NETWORK_TOOLS_STORE)
-        keyAlias ANDROID_NETWORK_TOOLS_ALIAS
-        storePassword ANDROID_NETWORK_TOOLS_PASS
-        keyPassword ANDROID_NETWORK_TOOLS_KEY_PASS
+        storeFile file(ANDROID_APPLI_RESEAU_STORE)
+        keyAlias ANDROID_APPLI_RESEAU_ALIAS
+        storePassword ANDROID_APPLI_RESEAU_PASS
+        keyPassword ANDROID_APPLI_RESEAU_KEY_PASS
       }
     }
   }
 
   buildTypes {
     release {
-      if (project.hasProperty("ANDROID_NETWORK_TOOLS_STORE")) {
+      if (project.hasProperty("ANDROID_APPLI_RESEAU_STORE")) {
         signingConfig signingConfigs.release
       }
       minifyEnabled false
