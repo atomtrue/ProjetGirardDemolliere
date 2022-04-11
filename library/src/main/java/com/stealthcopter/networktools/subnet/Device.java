@@ -1,4 +1,4 @@
-package com.stealthcopter.networktools.subnet;
+
 
 import java.net.InetAddress;
 
