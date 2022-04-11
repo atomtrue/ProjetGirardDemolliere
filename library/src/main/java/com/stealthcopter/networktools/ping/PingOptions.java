@@ -1,5 +1,3 @@
-package com.stealthcopter.networktools.ping;
-
 public class PingOptions {
     private int timeoutMillis;
     private int timeToLive;
