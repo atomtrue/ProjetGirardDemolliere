@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">Analyse Réseau</string>
+  <string name="hint_ip_address">IP Address or Hostname</string>
+  <string name="ping">Ping</string>
+  <string name="port_scan">Port Scan</string>
+  <string name="subnet">Subnet Devices</string>
+  <string name="timeout">** Timeout **</string>
+</resources>
